@@ -42,4 +42,24 @@ def view_books():
 
 
 
+# CRUD 3 - Update a book
+def update_book():
+    print("\n-- Update Book --")
+    view_books()
 
+    book_id = input("\nEnter Book ID: ")
+
+    if book_id not in books:
+        print("Book not found.")
+        return
+
+    title = input("New title (leave blank to keep): ")
+    author = input("New author (leave blank to keep): ")
+
+    if title != "":
+        books[book_id]["title"] = title
+
+    if author != "":
+        books[book_id]["author"] = author
+
+    print("Book updated!")
