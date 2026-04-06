@@ -24,5 +24,22 @@ def add_book():
     book_count += 1
     print("Book added! ID:", book_id)
 
+# CRUD 2 - View all books
+def view_books():
+    print("\n-- All Books --")
+
+    if len(books) == 0:
+        print("No books yet.")
+        return
+
+    for book in books.values():
+        if book["borrowed_by"] == None:
+            status = "Available"
+        else:
+            status = "Borrowed by " + members[book["borrowed_by"]]["name"]
+
+        print("ID:", book["id"], "| Title:", book["title"], "| Author:", book["author"], "| Status:", status)
+
+
 
 
